@@ -1,9 +1,9 @@
 
 const Inicio = () => {
     return (
-        <div>
+        <section className="seccionMain">
             <p>Inicio pagina</p>
-        </div>
+        </section>
     );
 };
 

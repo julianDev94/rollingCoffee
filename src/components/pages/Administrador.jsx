@@ -1,9 +1,9 @@
 
 const Administrador = () => {
     return (
-        <div>
+        <section className="seccionMain">
             
-        </div>
+        </section>
     );
 };
 

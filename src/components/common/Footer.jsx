@@ -1,9 +1,9 @@
 
 const Footer = () => {
     return (
-        <div>
-            <p>Seccion footer</p>
-        </div>
+        <section className="text-center estiloFooter p-3 ">
+            <p className="text-light">&copy; Todos los derechos reservados</p>
+        </section>
     );
 };
 
