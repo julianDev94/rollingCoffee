@@ -16,3 +16,8 @@
 .estiloFooter{
   background: #003c25;
 }
+
+.banner{
+  height: 350px;
+  object-fit: cover;
+}
