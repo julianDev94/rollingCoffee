@@ -1,5 +1,6 @@
 import { Button, Container } from "react-bootstrap";
 import imagenError404 from "../../assets/error404.png";
+import { Link } from "react-router-dom";
 
 const Error404 = () => {
   return (
@@ -11,7 +12,7 @@ const Error404 = () => {
           className="img-fluid w-50"
         />
         <div>
-          <Button variant="success">Volver a inicio</Button>
+          <Button as={Link} to="/" variant="success">Volver a inicio</Button>
         </div>
       </Container>
     </section>
