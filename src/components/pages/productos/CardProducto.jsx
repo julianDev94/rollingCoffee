@@ -1,5 +1,6 @@
 import { Card, Button } from "react-bootstrap";
 import imagenCafecito from "../../../assets/cafecitoAmericano.jpg";
+import { Link } from "react-router-dom";
 
 const CardProducto = () => {
   return (
