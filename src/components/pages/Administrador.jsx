@@ -7,7 +7,7 @@ const Administrador = () => {
       <Container className="my-5">
         <div className="d-flex justify-content-between align-items-center">
           <h1 className="display-4">Productos disponibles</h1>
-          <Button variant="primary"></Button>
+          <Button variant="primary"><i className="bi bi-file-earmark-plus"></i></Button>
         </div>
         <Table striped bordered hover className="text-center">
           <thead>
