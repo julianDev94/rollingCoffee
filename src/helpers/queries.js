@@ -2,6 +2,7 @@ const urlProductos = import.meta.env.VITE_API_PRODUCTO;
 
 console.log(urlProductos);
 
+//GET
 export const leerProductosAPI = async () =>{
     try {
         const respuesta = await fetch(urlProductos);
