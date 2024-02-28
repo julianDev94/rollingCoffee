@@ -1,15 +1,32 @@
 import { Container, Form, Button } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 
 const FormularioProducto = () => {
+  const {register, handleSubmit, formState: {errors},} = useForm();
+  
+  const productoValidado = (producto) =>{
+    console.log(producto);
+  }
+
   return (
     <section className="seccionMain">
       <Container className="my-3 ">
         <h1 className="display-2">Nuevo producto</h1>
         <hr />
-        <Form>
+        <Form onSubmit={handleSubmit(productoValidado)}>
           <Form.Group className="mb-3" controlId="formBasicProducto">
             <Form.Label>Producto</Form.Label>
-            <Form.Control type="text" placeholder="Ej: Café" />
+            <Form.Control type="text" placeholder="Ej: Café" {...register('nombreProducto',{
+              required: "El nombre del producto es obligatorio",
+              minLength: {
+                value: 2,
+                message: "El nombre del producto debe tener como minimo 2 caracteres"
+              },
+              maxLength: {
+                value: 30,
+                message: "El nombre del producto debe tener como maximo 30 caracteres"
+              }
+            })}/>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPrecio">
