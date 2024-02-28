@@ -1,7 +1,16 @@
 import { Container, Table, Button } from "react-bootstrap";
 import ItemProducto from "./productos/ItemProducto";
+import { useEffect, useState } from "react";
+import { leerProductosAPI } from "../../helpers/queries";
 
 const Administrador = () => {
+
+  const [productos, setProductos] = useState([]);
+
+  useEffect(()=>{
+    console.log(leerProductosAPI());
+  },[]);
+
   return (
     <section className="seccionMain">
       <Container className="my-5">
