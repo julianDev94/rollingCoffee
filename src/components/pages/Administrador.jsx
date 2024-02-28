@@ -4,19 +4,30 @@ import { useEffect, useState } from "react";
 import { leerProductosAPI } from "../../helpers/queries";
 
 const Administrador = () => {
-
   const [productos, setProductos] = useState([]);
 
-  useEffect(()=>{
-    console.log(leerProductosAPI());
-  },[]);
+  useEffect(() => {
+    consultarAPI();
+  }, []);
+
+  const consultarAPI = async () => {
+    try {
+      const respuesta = await leerProductosAPI();
+      console.log(respuesta);
+      setProductos(respuesta);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <section className="seccionMain">
       <Container className="my-5">
         <div className="d-flex justify-content-between align-items-center">
           <h1 className="display-4">Productos disponibles</h1>
-          <Button variant="primary"><i className="bi bi-file-earmark-plus"></i></Button>
+          <Button variant="primary">
+            <i className="bi bi-file-earmark-plus"></i>
+          </Button>
         </div>
         <Table striped bordered hover className="text-center">
           <thead>
@@ -30,9 +41,9 @@ const Administrador = () => {
             </tr>
           </thead>
           <tbody>
-            <ItemProducto />
-            <ItemProducto />
-            <ItemProducto />
+            {
+              productos.map((producto)=> <ItemProducto producto={producto} key={producto.id}></ItemProducto>)
+            }
           </tbody>
         </Table>
       </Container>

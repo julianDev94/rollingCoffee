@@ -1,15 +1,15 @@
 import React from "react";
 
-const ItemProducto = () => {
+const ItemProducto = ({producto}) => {
   return (
     <tr>
-      <td>1</td>
-      <td>Café Americano</td>
-      <td>$250</td>
+      <td>{producto.id}</td>
+      <td>{producto.nombreProducto}</td>
+      <td>{producto.precio}</td>
       <td>
-        <img src="" alt="" />
+        <img src={producto.imagen} alt={producto.nombreProducto} className="img-thumbnail"/>
       </td>
-      <td>Bebida caliente</td>
+      <td>{producto.categoria}</td>
       <td>
         <a href="" className="btn btn-danger mx-2">
           <i className="bi bi-trash"></i>
