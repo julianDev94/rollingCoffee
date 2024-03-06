@@ -10,6 +10,6 @@ export const leerProductosAPI = async () =>{
         console.log(listaProductos);
         return listaProductos;
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 }
