@@ -86,13 +86,13 @@ const FormularioProducto = () => {
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Categoría</Form.Label>
             <Form.Select
-              aria-label="Default select example"
               {...register("categoria",{
                 required: "Por favor elija alguna opcion"
               })}
             >
-              <option>Elija una opcion  </option>
+              <option value="">Seleccione una categoria</option>
               <option value="Infusiones">Infusiones</option>
+              <option value="Batidos">Infusiones</option>
             </Form.Select>
             <Form.Text className="text-danger">
               {errors.categoria?.message}
@@ -110,7 +110,7 @@ const FormularioProducto = () => {
                   message: "Ingrese una descripcion mayor a 5 caracteres",
                 },
                 maxLength: {
-                  value: 100,
+                  value: 50,
                   message: "Ingrese una descripción menor a 100 caracteres",
                 },
               })}
