@@ -1,15 +1,6 @@
 {
   "productos": [
     {
-      "id": "1",
-      "nombreProducto": "café",
-      "precio": 1500,
-      "categoria": "Infusiones",
-      "descripcionBreve": "cafe rico",
-      "descripcionAmplia": "cafe rico con mas detalle",
-      "imagen": "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-    },
-    {
       "id": "6cff",
       "nombreProducto": "Cafe cortado",
       "precio": "1900",
