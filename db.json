@@ -1,15 +1,6 @@
 {
   "productos": [
     {
-      "id": "6cff",
-      "nombreProducto": "Cafe cortado",
-      "precio": "1900",
-      "imagen": "https://media.istockphoto.com/id/1152767411/es/foto/taza-de-caf%C3%A9-latte-aislado-sobre-fondo-blanco-con-trazado-de-recorte.jpg?s=1024x1024&w=is&k=20&c=4TTvnxE6dBh342Dxpl5zulMePya8JVaaK7h_iYjAdLo=",
-      "categoria": "Infusiones",
-      "descripcionBreve": "sdddddddddddsadsadasdwrewr",
-      "descripcionAmplia": "retretretretretretretreqwrqwe4r3453545435435435345345345rtrsg"
-    },
-    {
       "id": "2237",
       "nombreProducto": "Brownie",
       "precio": "1670",
@@ -17,15 +8,6 @@
       "categoria": "Infusiones",
       "descripcionBreve": "Brownie rico de chocolate",
       "descripcionAmplia": "sadjsaiod iodsjifdsjaio ioewiroewrwje idsjfdisojfis  disfijdisadsf"
-    },
-    {
-      "id": "f24a",
-      "nombreProducto": "Brownie con almendras",
-      "precio": "800",
-      "imagen": "https://images.pexels.com/photos/887853/pexels-photo-887853.jpeg",
-      "categoria": "Batidos",
-      "descripcionBreve": "Brownie rico con almendras",
-      "descripcionAmplia": "dsjfdsjfoisjf jsiofjkiowejofr sidofjsijfiosjfidosjfosfjsdo"
     }
   ]
 }
