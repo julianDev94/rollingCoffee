@@ -44,3 +44,5 @@ export const borrarProductoAPI = async (id) => {
     console.log(error);
   }
 };
+
+//PUT
