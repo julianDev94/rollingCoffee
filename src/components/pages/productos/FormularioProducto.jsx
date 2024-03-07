@@ -1,18 +1,34 @@
 import { Container, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { crearProductosAPI } from "../../../helpers/queries";
+import Swal from "sweetalert2";
 
 const FormularioProducto = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
 
-  const productoValidado = (producto) => {
+  const productoValidado = async (producto) => {
     console.log(producto);
     //solicitar a la API guardar un producto
-    crearProductosAPI(producto);
+    const respuesta = await crearProductosAPI(producto);
+    if (respuesta.status === 201) {
+      Swal.fire({
+        title: "Se creó el producto",
+        text: `El producto ${producto.nombreProducto} fue creado correctamente`,
+        icon: "success",
+      });
+      reset();
+    }else{
+      Swal.fire({
+        title: "No se pudo crear el producto correctamente",
+        text: `El producto ${producto.nombreProducto} no fue creado correctamente. Por favor intentalo de nuevo más tarde.`,
+        icon: "error"
+      });
+    }
   };
 
   return (
@@ -89,13 +105,15 @@ const FormularioProducto = () => {
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Categoría</Form.Label>
             <Form.Select
-              {...register("categoria",{
-                required: "Por favor elija alguna opcion"
+              {...register("categoria", {
+                required: "Por favor elija alguna opcion",
               })}
             >
               <option value="">Seleccione una categoria</option>
               <option value="Infusiones">Infusiones</option>
-              <option value="Batidos">Infusiones</option>
+              <option value="Batidos">Batidos</option>
+              <option value="Dulces">Dulces</option>
+              <option value="Salado">Salado</option>
             </Form.Select>
             <Form.Text className="text-danger">
               {errors.categoria?.message}

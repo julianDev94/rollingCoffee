@@ -1,13 +1,15 @@
-import React from "react";
-
-const ItemProducto = ({producto}) => {
+const ItemProducto = ({ producto }) => {
   return (
     <tr>
       <td>{producto.id}</td>
       <td>{producto.nombreProducto}</td>
       <td>{producto.precio}</td>
       <td>
-        <img src={producto.imagen} alt={producto.nombreProducto} className="img-thumbnail"/>
+        <img
+          src={producto.imagen}
+          alt={producto.nombreProducto}
+          className="img-thumbnail"
+        />
       </td>
       <td>{producto.categoria}</td>
       <td>
