@@ -1,22 +1,31 @@
 {
-    "productos": [
-        {
-            "id":"1",
-            "nombreProducto":"café",
-            "precio":1500,
-            "categoria":"Infusiones",
-            "descripcionBreve":"cafe rico",
-            "descripcionAmplia":"cafe rico con mas detalle",
-            "imagen":"https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        },
-        {
-            "id":"2",
-            "nombreProducto":"té",
-            "precio":1000,
-            "categoria":"Infusiones",
-            "descripcionBreve":"té rico",
-            "descripcionAmplia":"té rico con mas detalle",
-            "imagen":"url"
-        }
-    ]
+  "productos": [
+    {
+      "id": "1",
+      "nombreProducto": "café",
+      "precio": 1500,
+      "categoria": "Infusiones",
+      "descripcionBreve": "cafe rico",
+      "descripcionAmplia": "cafe rico con mas detalle",
+      "imagen": "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+      "id": "2",
+      "nombreProducto": "té",
+      "precio": 1000,
+      "categoria": "Infusiones",
+      "descripcionBreve": "té rico",
+      "descripcionAmplia": "té rico con mas detalle",
+      "imagen": "url"
+    },
+    {
+      "id": "6cff",
+      "nombreProducto": "Cafe cortado",
+      "precio": "1900",
+      "imagen": "https://media.istockphoto.com/id/1152767411/es/foto/taza-de-caf%C3%A9-latte-aislado-sobre-fondo-blanco-con-trazado-de-recorte.jpg?s=1024x1024&w=is&k=20&c=4TTvnxE6dBh342Dxpl5zulMePya8JVaaK7h_iYjAdLo=",
+      "categoria": "Infusiones",
+      "descripcionBreve": "sdddddddddddsadsadasdwrewr",
+      "descripcionAmplia": "retretretretretretretreqwrqwe4r3453545435435435345345345rtrsg"
+    }
+  ]
 }
