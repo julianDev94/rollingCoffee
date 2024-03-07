@@ -1,4 +1,31 @@
+import { Button } from "react-bootstrap";
+import Swal from "sweetalert2";
+import { borrarProductoAPI } from "../../../helpers/queries";
+
 const ItemProducto = ({ producto }) => {
+  const borrarProducto = () => {
+    Swal.fire({
+      title: "Estas seguro de eliminar el producto?",
+      text: "No se puede revertir este proceso",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Borrar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // agregar logica si quiero borrar
+        borrarProductoAPI(producto.id);
+        Swal.fire({
+          title: "Eliminado",
+          text: `El producto ${producto.nombreProducto} fue eliminado`,
+          icon: "success",
+        });
+      }
+    });
+  };
+
   return (
     <tr>
       <td>{producto.id}</td>
@@ -12,13 +39,13 @@ const ItemProducto = ({ producto }) => {
         />
       </td>
       <td>{producto.categoria}</td>
-      <td>
-        <a href="" className="btn btn-danger mx-2">
+      <td className="d-flex">
+        <Button variant="warning" className=" me-lg-2">
           <i className="bi bi-trash"></i>
-        </a>
-        <a href="" className="btn btn-warning">
+        </Button>
+        <Button variant="danger" onClick={borrarProducto}>
           <i className="bi bi-pencil-square"></i>
-        </a>
+        </Button>
       </td>
     </tr>
   );
