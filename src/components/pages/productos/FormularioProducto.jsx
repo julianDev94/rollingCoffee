@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { crearProductosAPI } from "../../../helpers/queries";
 import Swal from "sweetalert2";
 
-const FormularioProducto = ({ editar }) => {
+const FormularioProducto = ({ editar, titulo }) => {
   const {
     register,
     handleSubmit,
@@ -38,7 +38,7 @@ const FormularioProducto = ({ editar }) => {
   return (
     <section className="seccionMain">
       <Container className="my-3 ">
-        <h1 className="display-2">Nuevo producto</h1>
+        <h1 className="display-2">{titulo}</h1>
         <hr />
         <Form onSubmit={handleSubmit(productoValidado)}>
           <Form.Group className="mb-3" controlId="formBasicProducto">
