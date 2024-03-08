@@ -44,6 +44,10 @@ const Login = () => {
             <Col sm="10">
               <Form.Control type="password" placeholder="Contraseña" {...register("password", {
                 required: "La contraseña es requerida",
+                pattern:{
+                  value: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
+                  message: "Por favor ingrese una contraseña válida que contenga digitos, minúsculas y mayúsculas"
+                },
                 minLength: {
                   value: 8,
                   message: "Por favor ingrese mas de 8 caracteres, ya sea números o letras"
