@@ -1,15 +1,37 @@
 import { Container, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { crearProductosAPI } from "../../../helpers/queries";
+import { crearProductosAPI, obtenerProductoID } from "../../../helpers/queries";
 import Swal from "sweetalert2";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const FormularioProducto = ({ editar, titulo }) => {
+  const [producto, setProducto] = useState({});
+  const { id } = useParams();
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
+
+  useEffect(() => {
+    if (editar) {
+      cargarDatosProductos(id);
+    }
+  }, []);
+
+  const cargarDatosProductos = async (id) => {
+    try {
+      const respuestaProductoID = await obtenerProductoID(id);
+      if(respuestaProductoID.status === 200){
+        const productoEncontrado = await respuestaProductoID.json();
+        console.log(productoEncontrado);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const productoValidado = async (producto) => {
     console.log(producto);

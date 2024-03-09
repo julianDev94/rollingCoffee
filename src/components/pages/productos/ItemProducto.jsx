@@ -57,10 +57,11 @@ const ItemProducto = ({ producto, setProductos }) => {
           to={"/administrador/editar/" + producto.id}
           className=" me-lg-2 btn btn-warning"
         >
-          <i className="bi bi-trash"></i>
+          <i className="bi bi-pencil-square"></i>
         </Link>
         <Button variant="danger" onClick={borrarProducto}>
-          <i className="bi bi-pencil-square"></i>
+          
+          <i className="bi bi-trash"></i>
         </Button>
       </td>
     </tr>
