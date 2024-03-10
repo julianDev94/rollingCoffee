@@ -6,8 +6,12 @@ import Administrador from "./components/pages/Administrador";
 import Error404 from "./components/pages/Error404";
 import Inicio from "./components/pages/Inicio";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+<<<<<<< HEAD
 import FormularioProducto from "./components/pages/productos/FormularioProducto";
 import "./App.css";
+=======
+import DetalleProducto from "./components/pages/productos/DetalleProducto";
+>>>>>>> detalleProducto
 
 function App() {
   return (
@@ -16,8 +20,12 @@ function App() {
       <Routes>
          <Route exact path="/" element={<Inicio></Inicio>}/>
          <Route exact path="/administrador" element={<Administrador></Administrador>}/>
+<<<<<<< HEAD
          <Route exact path="/administrador/crear" element={<FormularioProducto editar={false} titulo='Nuevo producto'></FormularioProducto>}></Route>
          <Route exact path="/administrador/editar/:id" element={<FormularioProducto editar={true} titulo='Editar producto'></FormularioProducto>}></Route>
+=======
+         <Route exact path="/login" element={<DetalleProducto></DetalleProducto>} />
+>>>>>>> detalleProducto
          <Route exact path="*" element={<Error404></Error404>}/>
       </Routes>
       <Footer />
