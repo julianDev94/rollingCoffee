@@ -5,6 +5,7 @@ import Menu from "./components/common/Menu";
 import Administrador from "./components/pages/Administrador";
 import Error404 from "./components/pages/Error404";
 import Inicio from "./components/pages/Inicio";
+import Login from "./components/pages/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 <<<<<<< HEAD
 import FormularioProducto from "./components/pages/productos/FormularioProducto";
@@ -20,12 +21,9 @@ function App() {
       <Routes>
          <Route exact path="/" element={<Inicio></Inicio>}/>
          <Route exact path="/administrador" element={<Administrador></Administrador>}/>
-<<<<<<< HEAD
          <Route exact path="/administrador/crear" element={<FormularioProducto editar={false} titulo='Nuevo producto'></FormularioProducto>}></Route>
          <Route exact path="/administrador/editar/:id" element={<FormularioProducto editar={true} titulo='Editar producto'></FormularioProducto>}></Route>
-=======
-         <Route exact path="/login" element={<DetalleProducto></DetalleProducto>} />
->>>>>>> detalleProducto
+         <Route exact path="/login" element={<Login></Login>}></Route>
          <Route exact path="*" element={<Error404></Error404>}/>
       </Routes>
       <Footer />

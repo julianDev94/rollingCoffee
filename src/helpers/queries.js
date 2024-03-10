@@ -73,4 +73,23 @@ export const borrarProductoAPI = async (id) => {
   }
 };
 
+
 //PUT
+
+//modificar login cuando tengamos un backend
+const userAdmin = {
+  mail: "admin@rollingcoffe.com",
+  password: "Admin1234",
+};
+
+export const logicaLogin = (usuario) => {
+  if (
+    usuario.email === userAdmin.mail &&
+    usuario.password === userAdmin.password
+  ) {
+    sessionStorage.setItem("usuarioKey", JSON.stringify(usuario.email));
+    return true;
+  }else{
+    return false;
+  }
+};
