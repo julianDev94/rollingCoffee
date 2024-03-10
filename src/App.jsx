@@ -7,11 +7,9 @@ import Error404 from "./components/pages/Error404";
 import Inicio from "./components/pages/Inicio";
 import Login from "./components/pages/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import FormularioProducto from "./components/pages/productos/FormularioProducto";
 import "./App.css";
 import DetalleProducto from "./components/pages/productos/DetalleProducto";
 import FormularioProducto from "./components/pages/productos/FormularioProducto";
-import "./App.css";
 
 function App() {
   return (
