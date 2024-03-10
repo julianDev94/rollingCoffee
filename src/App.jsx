@@ -9,16 +9,20 @@ import Login from "./components/pages/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FormularioProducto from "./components/pages/productos/FormularioProducto";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
-  return (
+  const usuario = JSON.parse(sessionStorage.getItem("usuarioKey")) || "";
+  const [usuarioLogueado, setUsuarioLogueado] = useState(usuario);
+
+   return (
     <BrowserRouter>
     <Menu />
       <Routes>
          <Route exact path="/" element={<Inicio></Inicio>}/>
          <Route exact path="/administrador" element={<Administrador></Administrador>}/>
          <Route exact path="/administrador/crear" element={<FormularioProducto></FormularioProducto>}></Route>
-         <Route exact path="/login" element={<Login></Login>}></Route>
+         <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}></Route>
          <Route exact path="*" element={<Error404></Error404>}/>
       </Routes>
       <Footer />

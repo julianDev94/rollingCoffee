@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { logicaLogin } from "../../helpers/queries";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
-const Login = () => {
+const Login = ({setUsuarioLogueado}) => {
   const navigate = useNavigate();
 
   const {
@@ -22,6 +22,7 @@ const Login = () => {
         icon: "success",
       });
       navigate("/administrador");
+      setUsuarioLogueado(usuario.email);
     }else{
       Swal.fire({
         title: "Ops! ocurrio un error",
