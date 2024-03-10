@@ -1,40 +1,93 @@
 import { Container, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { crearProductosAPI } from "../../../helpers/queries";
+import { crearProductosAPI, obtenerProductoID } from "../../../helpers/queries";
 import Swal from "sweetalert2";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { modifcarProductosAPI } from "../../../helpers/queries";
+import { useNavigate } from "react-router-dom";
 
-const FormularioProducto = () => {
+const FormularioProducto = ({ editar, titulo }) => {
+  const [producto, setProducto] = useState({});
+  const { id } = useParams();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
+    setValue,
   } = useForm();
+
+  useEffect(() => {
+    if (editar) {
+      cargarDatosProductos(id);
+    }
+  }, []);
+
+  const cargarDatosProductos = async (id) => {
+    try {
+      const respuestaProductoID = await obtenerProductoID(id);
+      if (respuestaProductoID.status === 200) {
+        const productoEncontrado = await respuestaProductoID.json();
+        console.log(productoEncontrado);
+        setValue("nombreProducto", productoEncontrado.nombreProducto);
+        setValue("precio", productoEncontrado.precio);
+        setValue("imagen", productoEncontrado.imagen);
+        setValue("categoria", productoEncontrado.categoria);
+        setValue("descripcionBreve", productoEncontrado.descripcionBreve);
+        setValue("descripcionAmplia", productoEncontrado.descripcionAmplia);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const productoValidado = async (producto) => {
     console.log(producto);
-    //solicitar a la API guardar un producto
-    const respuesta = await crearProductosAPI(producto);
-    if (respuesta.status === 201) {
-      Swal.fire({
-        title: "Se creó el producto",
-        text: `El producto ${producto.nombreProducto} fue creado correctamente`,
-        icon: "success",
-      });
-      reset();
-    }else{
-      Swal.fire({
-        title: "No se pudo crear el producto correctamente",
-        text: `El producto ${producto.nombreProducto} no fue creado correctamente. Por favor intentalo de nuevo más tarde.`,
-        icon: "error"
-      });
+    if (editar === true) {
+      //agregar logica para editar
+      //tomar datos del producto validad y enviarlo a la API para actualizar
+      const respuesta = await modifcarProductosAPI(producto, id);
+      if (respuesta.status === 200) {
+        Swal.fire({
+          title: "Producto modificado!",
+          text: `El producto ${producto.nombreProducto} fue modificado con éxito`,
+          icon: "success",
+        });
+        //redireccionar a la pagina del administrador
+        navigate("/administrador")
+      } else {
+        Swal.fire({
+          title: "Producto no modificado!",
+          text: `El producto ${producto.nombreProducto} no pudo ser modificado. Vuelva a intentarlo de nuevo en unos minutos`,
+          icon: "error",
+        });
+      }
+    } else {
+      //solicitar a la API guardar un producto
+      const respuesta = await crearProductosAPI(producto);
+      if (respuesta.status === 201) {
+        Swal.fire({
+          title: "Se creó el producto",
+          text: `El producto ${producto.nombreProducto} fue creado correctamente`,
+          icon: "success",
+        });
+        reset();
+      } else {
+        Swal.fire({
+          title: "No se pudo crear el producto correctamente",
+          text: `El producto ${producto.nombreProducto} no fue creado correctamente. Por favor intentalo de nuevo más tarde.`,
+          icon: "error",
+        });
+      }
     }
   };
 
   return (
     <section className="seccionMain">
       <Container className="my-3 ">
-        <h1 className="display-2">Nuevo producto</h1>
+        <h1 className="display-2">{titulo}</h1>
         <hr />
         <Form onSubmit={handleSubmit(productoValidado)}>
           <Form.Group className="mb-3" controlId="formBasicProducto">

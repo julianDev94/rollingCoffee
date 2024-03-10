@@ -2,6 +2,7 @@ import { Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { borrarProductoAPI } from "../../../helpers/queries";
 import { leerProductosAPI } from "../../../helpers/queries";
+import { Link } from "react-router-dom";
 
 const ItemProducto = ({ producto, setProductos }) => {
   const borrarProducto = () => {
@@ -27,7 +28,7 @@ const ItemProducto = ({ producto, setProductos }) => {
           //actualizar tabla productos
           const productosActuales = await leerProductosAPI();
           setProductos(productosActuales);
-        }else{
+        } else {
           Swal.fire({
             title: "Oops, ocurrió un error!",
             text: `El producto ${producto.nombreProducto} no pudo ser eliminado. Intente realizar esta operacion en unos minutos`,
@@ -47,16 +48,20 @@ const ItemProducto = ({ producto, setProductos }) => {
         <img
           src={producto.imagen}
           alt={producto.nombreProducto}
-          className="img-thumbnail"
+          className="img-thumbnail w-50 h-50"
         />
       </td>
       <td>{producto.categoria}</td>
       <td className="d-flex">
-        <Button variant="warning" className=" me-lg-2">
-          <i className="bi bi-trash"></i>
-        </Button>
-        <Button variant="danger" onClick={borrarProducto}>
+        <Link
+          to={"/administrador/editar/" + producto.id}
+          className=" me-lg-2 btn btn-warning"
+        >
           <i className="bi bi-pencil-square"></i>
+        </Link>
+        <Button variant="danger" onClick={borrarProducto}>
+          
+          <i className="bi bi-trash"></i>
         </Button>
       </td>
     </tr>

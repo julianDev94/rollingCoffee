@@ -14,6 +14,17 @@ export const leerProductosAPI = async () => {
   }
 };
 
+//GET que devuelve un producto
+export const obtenerProductoID = async (productoID) => {
+  try {
+    const respuesta = await fetch(urlProductos + "/" + productoID);
+    console.log(respuesta);
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 //POST
 export const crearProductosAPI = async (productoNuevo) => {
   try {
@@ -23,6 +34,23 @@ export const crearProductosAPI = async (productoNuevo) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(productoNuevo),
+    });
+    console.log(respuesta);
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//PUT - PACH (DIFERENCIA, PUT CAMBIA TODO EL OBJETO, PATCH SOLO UNA PROPIEDAD)
+export const modifcarProductosAPI = async (productoModificado,id) => {
+  try {
+    const respuesta = await fetch(urlProductos + "/" + id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(productoModificado),
     });
     console.log(respuesta);
     return respuesta;
@@ -44,3 +72,5 @@ export const borrarProductoAPI = async (id) => {
     console.log(error);
   }
 };
+
+//PUT
