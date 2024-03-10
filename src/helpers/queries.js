@@ -18,7 +18,7 @@ export const leerProductosAPI = async () => {
 export const obtenerProductoID = async (productoID) => {
   try {
     const respuesta = await fetch(urlProductos + "/" + productoID);
-    console.log(respuesta);
+
     return respuesta;
   } catch (error) {
     console.log(error);
