@@ -21,7 +21,7 @@ const Login = () => {
         text: `Bienvenido ${usuario.email}`,
         icon: "success",
       });
-      navigate("/administrador")
+      navigate("/administrador");
     }else{
       Swal.fire({
         title: "Ops! ocurrio un error",
