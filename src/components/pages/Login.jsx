@@ -3,7 +3,10 @@ import { Form, Col, Button, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { logicaLogin } from "../../helpers/queries";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 const Login = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -18,6 +21,7 @@ const Login = () => {
         text: `Bienvenido ${usuario.email}`,
         icon: "success",
       });
+      navigate("/administrador")
     }else{
       Swal.fire({
         title: "Ops! ocurrio un error",
