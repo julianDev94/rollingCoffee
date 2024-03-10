@@ -1,13 +1,13 @@
 {
   "productos": [
     {
-      "id": "2237",
       "nombreProducto": "Brownie",
-      "precio": "1670",
+      "precio": "1680",
       "imagen": "https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "categoria": "Infusiones",
+      "categoria": "Dulces",
       "descripcionBreve": "Brownie rico de chocolate",
-      "descripcionAmplia": "sadjsaiod iodsjifdsjaio ioewiroewrwje idsjfdisojfis  disfijdisadsf"
+      "descripcionAmplia": "brownie rico de chocolate, apto para ser consumido para celiacos tambien.",
+      "id": "2237"
     }
   ]
 }

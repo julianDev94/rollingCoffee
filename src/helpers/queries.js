@@ -42,6 +42,23 @@ export const crearProductosAPI = async (productoNuevo) => {
   }
 };
 
+//PUT - PACH (DIFERENCIA, PUT CAMBIA TODO EL OBJETO, PATCH SOLO UNA PROPIEDAD)
+export const modifcarProductosAPI = async (productoModificado,id) => {
+  try {
+    const respuesta = await fetch(urlProductos + "/" + id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(productoModificado),
+    });
+    console.log(respuesta);
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 //DELETE
 
 export const borrarProductoAPI = async (id) => {
