@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.min.css"
+import "bootstrap-icons/font/bootstrap-icons.min.css";
 import Footer from "./components/common/Footer";
 import Menu from "./components/common/Menu";
 import Administrador from "./components/pages/Administrador";
@@ -15,15 +15,27 @@ function App() {
   const usuario = JSON.parse(sessionStorage.getItem("usuarioKey")) || "";
   const [usuarioLogueado, setUsuarioLogueado] = useState(usuario);
 
-   return (
+  return (
     <BrowserRouter>
-    <Menu usuarioLogueado={usuarioLogueado} setUsuarioLogueado={setUsuarioLogueado} />
+      <Menu
+        usuarioLogueado={usuarioLogueado}
+        setUsuarioLogueado={setUsuarioLogueado}
+      />
       <Routes>
-         <Route exact path="/" element={<Inicio></Inicio>}/>
-         <Route exact path="/administrador" element={<Administrador></Administrador>}/>
-         <Route exact path="/administrador/crear" element={<FormularioProducto></FormularioProducto>}></Route>
-         <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}></Route>
-         <Route exact path="*" element={<Error404></Error404>}/>
+        <Route exact path="/" element={<Inicio></Inicio>} />
+
+        <Route
+          exact
+          path="/administrador/*"
+          element={<Administrador></Administrador>}
+        />
+
+        <Route
+          exact
+          path="/login"
+          element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}
+        ></Route>
+        <Route exact path="*" element={<Error404></Error404>} />
       </Routes>
       <Footer />
     </BrowserRouter>
