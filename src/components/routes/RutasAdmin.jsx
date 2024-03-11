@@ -17,6 +17,16 @@ const RutasAdmin = () => {
             ></FormularioProducto>
           }
         ></Route>
+        <Route
+          exact
+          path="/editar/:id"
+          element={
+            <FormularioProducto
+              editar={true}
+              titulo="Editar producto"
+            ></FormularioProducto>
+          }
+        ></Route>
       </Routes>
     </>
   );

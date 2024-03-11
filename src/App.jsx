@@ -10,6 +10,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FormularioProducto from "./components/pages/productos/FormularioProducto";
 import "./App.css";
 import { useState } from "react";
+import RutasProtegidas from "./components/routes/RutasProtegidas";
+import RutasAdmin from "./components/routes/RutasAdmin";
 
 function App() {
   const usuario = JSON.parse(sessionStorage.getItem("usuarioKey")) || "";
@@ -23,13 +25,11 @@ function App() {
       />
       <Routes>
         <Route exact path="/" element={<Inicio></Inicio>} />
-
         <Route
           exact
           path="/administrador/*"
-          element={<Administrador></Administrador>}
+          element={<RutasProtegidas><RutasAdmin></RutasAdmin></RutasProtegidas>}
         />
-
         <Route
           exact
           path="/login"
