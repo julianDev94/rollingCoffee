@@ -10,24 +10,42 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import DetalleProducto from "./components/pages/productos/DetalleProducto";
 import FormularioProducto from "./components/pages/productos/FormularioProducto";
-import "./App.css";
+import { useState } from "react";
+import RutasProtegidas from "./components/routes/RutasProtegidas";
+import RutasAdmin from "./components/routes/RutasAdmin";
 
 function App() {
+  const usuario = JSON.parse(sessionStorage.getItem("usuarioKey")) || "";
+  const [usuarioLogueado, setUsuarioLogueado] = useState(usuario);
+
   return (
     <BrowserRouter>
-      <Menu />
+      <Menu
+        usuarioLogueado={usuarioLogueado}
+        setUsuarioLogueado={setUsuarioLogueado}
+      />
       <Routes>
-         <Route exact path="/" element={<Inicio></Inicio>}/>
-         <Route exact path="/administrador" element={<Administrador></Administrador>}/>
-         <Route exact path="/administrador/crear" element={<FormularioProducto editar={false} titulo='Nuevo producto'></FormularioProducto>}></Route>
-         <Route exact path="/administrador/editar/:id" element={<FormularioProducto editar={true} titulo='Editar producto'></FormularioProducto>}></Route>
-         <Route exact path="/login" element={<Login></Login>}></Route>
-         <Route
+        <Route exact path="/" element={<Inicio></Inicio>} />
+        <Route
+          exact
+          path="/administrador/*"
+          element={
+            <RutasProtegidas>
+              <RutasAdmin></RutasAdmin>
+            </RutasProtegidas>
+          }
+        />
+        <Route
+          exact
+          path="/login"
+          element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}
+        ></Route>
+        <Route
           exact
           path="/detalleProducto/:id"
           element={<DetalleProducto></DetalleProducto>}
         />
-         <Route exact path="*" element={<Error404></Error404>}/>
+        <Route exact path="*" element={<Error404></Error404>} />
       </Routes>
       <Footer />
     </BrowserRouter>
