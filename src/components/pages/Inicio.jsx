@@ -35,7 +35,7 @@ const Inicio = () => {
           {Array.from({ length: productos.length }).map((_, idx) => (
             <Col key={idx}>
               {productos.map((producto) => (
-                <CardProducto producto={producto} key={producto.id} />
+                <CardProducto producto={producto} key={producto._id} />
               ))}
             </Col>
           ))}

@@ -13,9 +13,10 @@ const DetalleProducto = () => {
   const detalleProducto = async () => {
     try {
       const respuestaProducto = await obtenerProductoID(id);
-
+      
       if (respuestaProducto.status === 200) {
         const productoEncontrado = await respuestaProducto.json();
+        console.log(productoEncontrado);
         setProducto(productoEncontrado);
       }
     } catch (error) {
