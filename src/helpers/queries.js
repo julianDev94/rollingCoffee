@@ -1,4 +1,5 @@
 const urlProductos = import.meta.env.VITE_API_PRODUCTO;
+const urlProducto = import.meta.env.VITE_API_PRODUCTO_INDIVIDUAL;
 
 console.log(urlProductos);
 
@@ -17,7 +18,7 @@ export const leerProductosAPI = async () => {
 //GET que devuelve un producto
 export const obtenerProductoID = async (productoID) => {
   try {
-    const respuesta = await fetch(urlProductos + "/" + productoID);
+    const respuesta = await fetch(urlProducto + "/" + productoID);
 
     return respuesta;
   } catch (error) {
@@ -45,7 +46,7 @@ export const crearProductosAPI = async (productoNuevo) => {
 //PUT - PACH (DIFERENCIA, PUT CAMBIA TODO EL OBJETO, PATCH SOLO UNA PROPIEDAD)
 export const modifcarProductosAPI = async (productoModificado,id) => {
   try {
-    const respuesta = await fetch(urlProductos + "/" + id, {
+    const respuesta = await fetch(urlProducto + "/" + id, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -63,7 +64,7 @@ export const modifcarProductosAPI = async (productoModificado,id) => {
 
 export const borrarProductoAPI = async (id) => {
   try {
-    const respuesta = await fetch(`${urlProductos}/${id}`, {
+    const respuesta = await fetch(`${urlProducto}/${id}`, {
       method: "DELETE",
     });
     console.log(respuesta);
