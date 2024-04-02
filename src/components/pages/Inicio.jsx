@@ -32,7 +32,7 @@ const Inicio = () => {
       <Container className="my-3">
         <h1 className="display-2">Nuestros Productos</h1>
         <Row xs={1} md={3} className="g-4">
-          {Array.from({ length: productos.length }).map((_, idx) => (
+          {Array.from({ length: 1 }).map((_, idx) => (
             <Col key={idx}>
               {productos.map((producto) => (
                 <CardProducto producto={producto} key={producto._id} />

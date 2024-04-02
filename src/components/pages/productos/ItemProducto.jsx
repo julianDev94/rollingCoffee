@@ -41,7 +41,7 @@ const ItemProducto = ({ producto, setProductos }) => {
 
   return (
     <tr>
-      <td>{producto._id}</td>
+      {/* <td>{producto._id}</td> */}
       <td>{producto.nombreProducto}</td>
       <td>{producto.precio}</td>
       <td>
